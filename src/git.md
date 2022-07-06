@@ -161,59 +161,68 @@ git clone https://github.com/VadzimKuzmenkaEPAM/mjs.git
 ## 3. Add a line to a file and commit changes. Do it 5 times. 
 ##    You should end up with 5 lines in a file and 6 commits: 
 ##        1 for creating an empty file and 5 for adding a line.
-vi doubtingFile.txt
-git add doubtingFile.txt
-git commit -m "step 3: Added 1 line in file doubtingFile.txt"
-vi doubtingFile.txt
-git add doubtingFile.txt
-git commit -m "step 3: Added 2 line in file doubtingFile.txt"
-vi doubtingFile.txt
-git add doubtingFile.txt
-git commit -m "step 3: Added 3 line in file doubtingFile.txt"
-vi doubtingFile.txt
-git add doubtingFile.txt
-git commit -m "step 3: Added 4 line in file doubtingFile.txt"
-vi doubtingFile.txt
-git add doubtingFile.txt
-git commit -m "step 3: Added 5 line in file doubtingFile.txt"
+    vi doubtingFile.txt
+    git add doubtingFile.txt
+    git commit -m "step 3: Added 1 line in file doubtingFile.txt"
+    vi doubtingFile.txt
+    git add doubtingFile.txt
+    git commit -m "step 3: Added 2 line in file doubtingFile.txt"
+    vi doubtingFile.txt
+    git add doubtingFile.txt
+    git commit -m "step 3: Added 3 line in file doubtingFile.txt"
+    vi doubtingFile.txt
+    git add doubtingFile.txt
+    git commit -m "step 3: Added 4 line in file doubtingFile.txt"
+    vi doubtingFile.txt
+    git add doubtingFile.txt
+    git commit -m "step 3: Added 5 line in file doubtingFile.txt"
 
 ## 4. Check you log and copy it somewhere
-$ git log -10
+    $ git log -10
+    
+    commit 3890e3236a7563dbbfddd3bcce7521c5c3b23731 (HEAD -> git_3)
+    Author: Vadzim Kuzmenka <Vadzim_Kuzmenka@epam.com>
+    Date:   Wed Jul 6 00:01:36 2022 +0400
+    
+        step 3: Added 5 line in file doubtingFile.txt
+    
+    commit fa5fd34033e62a8b849513d356f77ac9e08dc2c6
+    Author: Vadzim Kuzmenka <Vadzim_Kuzmenka@epam.com>
+    Date:   Wed Jul 6 00:00:59 2022 +0400
+    
+        step 3: Added 4 line in file doubtingFile.txt
+    
+    commit a11815bfc62c367f7cf88651a3337eef797f0432
+    Author: Vadzim Kuzmenka <Vadzim_Kuzmenka@epam.com>
+    Date:   Wed Jul 6 00:00:32 2022 +0400
+    
+        step 3: Added 3 line in file doubtingFile.txt
+    
+    commit 531abfe79bf6ce81e34a441393fde78289bcd27d
+    Author: Vadzim Kuzmenka <Vadzim_Kuzmenka@epam.com>
+    Date:   Tue Jul 5 23:59:53 2022 +0400
+    
+        step 3: Added 2 line in file doubtingFile.txt
+    
+    commit 05d6a7f08152e973227d7dac3503c2038030bf62
+    Author: Vadzim Kuzmenka <Vadzim_Kuzmenka@epam.com>
+    Date:   Tue Jul 5 23:59:11 2022 +0400
+    
+        step 3: Added 1 line in file doubtingFile.txt
+    
+    commit c858dc2c13d23e15c19f6a6109715d7f68b6aaf4
+    Author: Vadzim Kuzmenka <Vadzim_Kuzmenka@epam.com>
+    
+    
+    Launch interactive rebase for 5 last commits
+        git rebase -i HEAD~5    
+# 5. Launch interactive rebase for 5 last commits, squash all the latest commits into the first one. Reword first 
+# commit. You should end up with 2 commits: one for creating an empty file and the second for 
+# adding 5 lines. Second commit should have a new commit message.
 
-commit 3890e3236a7563dbbfddd3bcce7521c5c3b23731 (HEAD -> git_3)
-Author: Vadzim Kuzmenka <Vadzim_Kuzmenka@epam.com>
-Date:   Wed Jul 6 00:01:36 2022 +0400
-
-    step 3: Added 5 line in file doubtingFile.txt
-
-commit fa5fd34033e62a8b849513d356f77ac9e08dc2c6
-Author: Vadzim Kuzmenka <Vadzim_Kuzmenka@epam.com>
-Date:   Wed Jul 6 00:00:59 2022 +0400
-
-    step 3: Added 4 line in file doubtingFile.txt
-
-commit a11815bfc62c367f7cf88651a3337eef797f0432
-Author: Vadzim Kuzmenka <Vadzim_Kuzmenka@epam.com>
-Date:   Wed Jul 6 00:00:32 2022 +0400
-
-    step 3: Added 3 line in file doubtingFile.txt
-
-commit 531abfe79bf6ce81e34a441393fde78289bcd27d
-Author: Vadzim Kuzmenka <Vadzim_Kuzmenka@epam.com>
-Date:   Tue Jul 5 23:59:53 2022 +0400
-
-    step 3: Added 2 line in file doubtingFile.txt
-
-commit 05d6a7f08152e973227d7dac3503c2038030bf62
-Author: Vadzim Kuzmenka <Vadzim_Kuzmenka@epam.com>
-Date:   Tue Jul 5 23:59:11 2022 +0400
-
-    step 3: Added 1 line in file doubtingFile.txt
-
-commit c858dc2c13d23e15c19f6a6109715d7f68b6aaf4
-Author: Vadzim Kuzmenka <Vadzim_Kuzmenka@epam.com>
-
-
-Launch interactive rebase for 5 last commits
-    git rebase -i HEAD~5    
+    git log --oneline
+    git rebase -i HEAD~5  
+![img_1.png](img_1.png)
+![img_2.png](img_2.png)
+    
 
