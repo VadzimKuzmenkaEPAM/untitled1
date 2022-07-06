@@ -113,10 +113,107 @@ git clone https://github.com/VadzimKuzmenkaEPAM/mjs.git
        git push -u origin git_2
 
 ## 17.	clone your project to another folder.
-       create new folder «new_forlder»
-       $ cd ~/git_test/new_folder
-       $ git clone git@github.com:VadzimKuzmenkaEPAM/mjs_lab.git
-       git remote add origin https://github.com/VadzimKuzmenkaEPAM/mjs_lab.git
-       git fetch --all
+        cd .. (do urovnya papki Vadzim_Kuzmenka)
+        cp -r git_test newrepo_folder
 
+## 18. folder2: git_1: Change two lines in firstFile.txt. commit + push
+        cd newrepo_folder/
+        git checkout git_1
+        vi firstFile.txt
+        git add firstFile.txt
+        git commit -m "step 18: folder2 git_1: Change 2 lines in firstFile"
+        git push
+
+## 19. folder1: git_1: Change another two lines in firstFile.txt.
+        cd ..
+        cd git_test
+        git checkout git_1
+        vi firstFile.txt
+
+## 20. folder1: git_1:
+## Change another line in firstFile.txt (not the same as in 18, 19).
+## merge changes from Step 18 (pull) without committing changes from Step 19 and any additional commits.
+## push without commit changes.
+## Return to local state of Step 19. (stash)
+        
+        vi firstFile.txt
+        git remote add newrepo_folder ../newrepo_folder
+        git remote update
+        git stash save "Changes from step 19"
+        git stash list
+
+        git merge --allow-unrelated-histories newrepo_folder/git_1
+        git push
+        git stash pop stash@{0} 
+
+## Part 2
+
+
+## 1. Create git_3 branch from git_task. Checkout to git_3.
+        git branch git_3
+        git checkout git_3
+
+## 2. Add new empty file doubtingFile.txt and commit it.
+        echo "" >> doubtingFile.txt
+        git add doubtingFile.txt
+        git commit -m "step 2: Add new empty file doubtingFile.txt"
+
+## 3. Add a line to a file and commit changes. Do it 5 times. 
+##    You should end up with 5 lines in a file and 6 commits: 
+##        1 for creating an empty file and 5 for adding a line.
+vi doubtingFile.txt
+git add doubtingFile.txt
+git commit -m "step 3: Added 1 line in file doubtingFile.txt"
+vi doubtingFile.txt
+git add doubtingFile.txt
+git commit -m "step 3: Added 2 line in file doubtingFile.txt"
+vi doubtingFile.txt
+git add doubtingFile.txt
+git commit -m "step 3: Added 3 line in file doubtingFile.txt"
+vi doubtingFile.txt
+git add doubtingFile.txt
+git commit -m "step 3: Added 4 line in file doubtingFile.txt"
+vi doubtingFile.txt
+git add doubtingFile.txt
+git commit -m "step 3: Added 5 line in file doubtingFile.txt"
+
+## 4. Check you log and copy it somewhere
+$ git log -10
+
+commit 3890e3236a7563dbbfddd3bcce7521c5c3b23731 (HEAD -> git_3)
+Author: Vadzim Kuzmenka <Vadzim_Kuzmenka@epam.com>
+Date:   Wed Jul 6 00:01:36 2022 +0400
+
+    step 3: Added 5 line in file doubtingFile.txt
+
+commit fa5fd34033e62a8b849513d356f77ac9e08dc2c6
+Author: Vadzim Kuzmenka <Vadzim_Kuzmenka@epam.com>
+Date:   Wed Jul 6 00:00:59 2022 +0400
+
+    step 3: Added 4 line in file doubtingFile.txt
+
+commit a11815bfc62c367f7cf88651a3337eef797f0432
+Author: Vadzim Kuzmenka <Vadzim_Kuzmenka@epam.com>
+Date:   Wed Jul 6 00:00:32 2022 +0400
+
+    step 3: Added 3 line in file doubtingFile.txt
+
+commit 531abfe79bf6ce81e34a441393fde78289bcd27d
+Author: Vadzim Kuzmenka <Vadzim_Kuzmenka@epam.com>
+Date:   Tue Jul 5 23:59:53 2022 +0400
+
+    step 3: Added 2 line in file doubtingFile.txt
+
+commit 05d6a7f08152e973227d7dac3503c2038030bf62
+Author: Vadzim Kuzmenka <Vadzim_Kuzmenka@epam.com>
+Date:   Tue Jul 5 23:59:11 2022 +0400
+
+    step 3: Added 1 line in file doubtingFile.txt
+
+commit c858dc2c13d23e15c19f6a6109715d7f68b6aaf4
+Author: Vadzim Kuzmenka <Vadzim_Kuzmenka@epam.com>
+
+
+Launch interactive rebase for 5 last commits
+    git rebase -i HEAD~5    
 
