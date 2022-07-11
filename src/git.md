@@ -104,7 +104,7 @@ git clone https://github.com/VadzimKuzmenkaEPAM/mjs.git
        git commit -m «commit thirdFile.txt»
 ## 15.	git_2: Run command that removes all changes of the last two commits
 
-    git reset HEAD~2
+    git reset --hard HEAD~2
 
 ## 16.	Synchronize git_1 and git_2 with a remote repository.
        git checkout git_1
