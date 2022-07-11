@@ -66,10 +66,9 @@ git clone https://github.com/VadzimKuzmenkaEPAM/mjs.git
       git add firstFile.txt
       git commit -m "step 8: in firstFile.txt modified another two lines"
 
-///////////////////////git format-patch git_2 -o patches
-///////////////////rm -r patches/*
 
 ## 9.	Transfer changes of commit from Step 7 only to git_2, using format patch.
+      git loc
       git format-patch -1 23c9b1bbb0513de8c386444472c47510ba474c62 -o patches
       ls patches
       git checkout git_2
